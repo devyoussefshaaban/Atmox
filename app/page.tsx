@@ -22,33 +22,33 @@ const forecastStats = [
 const dailyForecastStats = [
   {
     day: "Tuesday",
-    min: "24°",
-    max: "68°",
+    min: 24,
+    max: 68,
   },
   {
     day: "Wednesday",
-    min: "24°",
-    max: "68°",
+    min: 24,
+    max: 68,
   },
   {
     day: "Thursday",
-    min: "24°",
-    max: "68°",
+    min: 24,
+    max: 68,
   },
   {
     day: "Friday",
-    min: "24°",
-    max: "68°",
+    min: 24,
+    max: 68,
   },
   {
     day: "Saturday",
-    min: "24°",
-    max: "68°",
+    min: 24,
+    max: 68,
   },
   {
     day: "Sunday",
-    min: "24°",
-    max: "68°",
+    min: 24,
+    max: 68,
   },
 ]
 
@@ -126,8 +126,8 @@ const Home = () => {
                     <p className="font-dmSans text-neutral-300 font-semibold mb-4 text-center">{stat.day}</p>
                     <Image width={150} height={150} src={getStatIcon(stat.min, stat.max)} alt="Sun Icon" />
                     <div className="flex flex-row justify-between">
-                      <p className="font-dmSans font-normal text-neutral-300 italic text-xl">{stat.min}</p>
-                      <p className="font-dmSans font-normal text-neutral-300 italic text-xl">{stat.max}</p>
+                      <p className="font-dmSans font-normal text-neutral-300 italic text-xl">{stat.min}°</p>
+                      <p className="font-dmSans font-normal text-neutral-300 italic text-xl">{stat.max}°</p>
                     </div>
                   </div>
                 ))}
