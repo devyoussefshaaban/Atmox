@@ -20,7 +20,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="p-10">
+    <html lang="en" className="px-20 py-10">
       <header className="flex justify-between align-center">
         <div>
           <Image width={200} height={200} src="/images/logo.svg" alt="Logo" className="mx-auto" />
