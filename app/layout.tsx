@@ -2,13 +2,13 @@ import { DM_Sans, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
 
-const dmSans = DM_Sans({
+export const dmSans = DM_Sans({
   subsets: ["latin"],
   weight: ["300", "500", "600", "700"],
   variable: "--font-dmSans",
 });
 
-const bricolage = Bricolage_Grotesque({
+export const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
   weight: ["700"],
   variable: "--font-bricolage",
@@ -20,8 +20,8 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="px-20 py-10">
-      <header className="flex justify-between align-center">
+    <html lang="en" className="px-4 py-6 md:px-20 md:py-10">
+      <header className="flex justify-between items-center">
         <div>
           <Image width={200} height={200} src="/images/logo.svg" alt="Logo" className="mx-auto" />
         </div>
