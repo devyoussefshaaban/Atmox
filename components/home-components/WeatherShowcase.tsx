@@ -1,15 +1,20 @@
 "use client"
 
+import { Forecast, FormattedDayForecast, FormattedWeatherData } from "@/types"
 import { getStatIcon } from "@/utils"
 import Image from "next/image"
 import { FC } from "react"
 
 interface IProps {
-    forecastStats: { title: string, value: string }[]
+    forecastStats: FormattedWeatherData["current"],
     dailyForecastStats: { day: string, min: number, max: number }[]
+    currentTemp: number
+    conditionIcon: string
+    forecastDays: FormattedDayForecast[]
+    location: FormattedWeatherData["location"]
 }
 
-const WeatherShowcase: FC<IProps> = ({ forecastStats, dailyForecastStats }: IProps) => {
+const WeatherShowcase: FC<IProps> = ({ forecastStats, dailyForecastStats, currentTemp, conditionIcon, forecastDays, location }: IProps) => {
     return (
         <div className="flex flex-col">
             <div className="
@@ -23,22 +28,32 @@ const WeatherShowcase: FC<IProps> = ({ forecastStats, dailyForecastStats }: IPro
             bg-no-repeat
             bg-[url('/images/bg-today-large.svg')] w-full min-h-[350px]">
                 <div className="flex flex-col mb-4 sm:mb-0 text-center sm:text-left">
-                    <h2 className="font-bricolage font-bolder text-2xl sm:text-3xl">Berlin, Germany</h2>
-                    <p className="font-dmSans text-neutral-300 font-semibold">Tuesday, Aug 5, 2025</p>
+                    <h2 className="font-bricolage font-bolder text-2xl sm:text-3xl">{location.name}, {location.country}</h2>
+                    <p className="font-dmSans text-neutral-300 font-semibold">{forecastDays[0].date}</p>
                 </div>
                 <div className="flex flex-row items-center gap-2">
-                    <Image width={150} height={150} src="/images/icon-sunny.webp" alt="Sun Icon" />
-                    <p className="font-dmSans font-semibold italic text-6xl sm:text-8xl">68°</p>
+                    <Image width={150} height={150} src={conditionIcon} alt="Sun Icon" />
+                    <p className="font-dmSans font-semibold italic text-6xl sm:text-8xl">{currentTemp}°</p>
                 </div>
             </div>
             {/* FORECAST */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-                {forecastStats.map((stat) => (
-                    <div key={stat.title} className="flex flex-col bg-gray-800 p-4 rounded-lg border-2 border-gray-600">
-                        <p className="font-dmSans text-neutral-300 font-semibold mb-4">{stat.title}</p>
-                        <p className="font-dmSans font-semibold italic text-xl sm:text-2xl">{stat.value}</p>
-                    </div>
-                ))}
+                <div className="flex flex-col bg-gray-800 p-4 rounded-lg border-2 border-gray-600">
+                    <p className="font-dmSans text-neutral-300 font-semibold mb-4">Temperature</p>
+                    <p className="font-dmSans font-semibold italic text-xl sm:text-2xl">{forecastStats.temperature.celsius}°</p>
+                </div>
+                <div className="flex flex-col bg-gray-800 p-4 rounded-lg border-2 border-gray-600">
+                    <p className="font-dmSans text-neutral-300 font-semibold mb-4">Wind</p>
+                    <p className="font-dmSans font-semibold italic text-xl sm:text-2xl">{forecastStats.wind.speed.kph} kph</p>
+                </div>
+                <div className="flex flex-col bg-gray-800 p-4 rounded-lg border-2 border-gray-600">
+                    <p className="font-dmSans text-neutral-300 font-semibold mb-4">Humidity</p>
+                    <p className="font-dmSans font-semibold italic text-xl sm:text-2xl">{forecastStats.humidity}%</p>
+                </div>
+                <div className="flex flex-col bg-gray-800 p-4 rounded-lg border-2 border-gray-600">
+                    <p className="font-dmSans text-neutral-300 font-semibold mb-4">Pressure</p>
+                    <p className="font-dmSans font-semibold italic text-xl sm:text-2xl">{forecastStats.pressure.mb} mb</p>
+                </div>
             </div>
             {/* FOOTER */}
             <div className="mt-12">
