@@ -19,7 +19,7 @@ const HourlyForecast: FC<IProps> = ({ hourlyForecastStats, daysForecast }: IProp
         <div className="flex-[0.5]">
             <div className="flex flex-col justify-center bg-gray-800 p-6 rounded-2xl">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 mb-6">
-                    <h2 className="font-bricolage font-bold text-xl mb-3 text-center md:text-left">
+                    <h2 className="font-bricolage font-bold text-xl text-center md:text-left">
                         Hourly Forecast
                     </h2>
 

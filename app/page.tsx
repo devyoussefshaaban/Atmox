@@ -18,7 +18,7 @@ const Home = async ({ searchParams }: { searchParams: { city?: string } }) => {
   const forecastStats = formattedWeather.current
 
   return (
-    <main className=" mt-16">
+    <div>
       <SearchPlace initialCity={city || "Cairo"} />
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8 lg:mt-16 px-4">
         <div className="col-span-2">
@@ -37,7 +37,7 @@ const Home = async ({ searchParams }: { searchParams: { city?: string } }) => {
         </div>
       </div>
 
-    </main >
+    </div>
   );
 };
 
