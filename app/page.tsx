@@ -19,7 +19,7 @@ const Home = async ({ searchParams }: { searchParams: { city?: string } }) => {
 
   return (
     <main className=" mt-16">
-      <SearchPlace />
+      <SearchPlace initialCity={city || "Cairo"} />
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8 lg:mt-16 px-4">
         <div className="col-span-2">
           <WeatherShowcase
@@ -33,7 +33,7 @@ const Home = async ({ searchParams }: { searchParams: { city?: string } }) => {
         </div>
 
         <div className="col-span-1">
-          <HourlyForecast hourlyForecastStats={hourlyForecastStats} />
+          <HourlyForecast hourlyForecastStats={formattedWeather.forecast.today.hours!} />
         </div>
       </div>
 

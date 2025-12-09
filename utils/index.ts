@@ -4,6 +4,7 @@ import {
   FormattedDayForecast,
   FormattedHourlyForecast 
 } from "../types"
+import { days, months } from "./constants"
 
 export const getStatIcon = (min: number, max: number) => {
   const avg: number = Math.floor((max - min) / 2)
@@ -23,6 +24,18 @@ export const getHourFromString = (str: string): string => {
   const hour = Number(str.split(":")[0]) > 12 ? Number(str.split(":")[0]) - 12 : Number(str.split(":")[0])
 
   return hour + ":" + str.split(":")[1] + (Number(str.split(":")[0]) > 12 ? " PM" : " AM")
+}
+
+export const getDayFromString = (str: string): string => {
+  const day = days[new Date(str).getDay()]
+
+  return day
+}
+
+export const getMonthFromString = (str: string): string => {
+  const month = months[new Date(str).getMonth()]
+
+  return month
 }
 
 export function formatWeatherData(data: WeatherData): FormattedWeatherData {
