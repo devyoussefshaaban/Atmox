@@ -46,8 +46,8 @@ const SearchPlace: FC<IProps> = ({ initialCity }: IProps) => {
                         </select>
                     </div>
                     <div className="w-full sm:w-auto mt-2 sm:mt-0">
-                        <button className="w-full sm:w-auto rounded-lg bg-blue-500 px-8 py-3 font-semibold cursor-pointer text-white"
-                            disabled={initialCity === ""}
+                        <button className="w-full sm:w-auto rounded-lg bg-blue-500 px-8 py-3 font-semibold cursor-pointer text-white disabled:cursor-not-allowed disabled:bg-gray-600"
+                            disabled={selectedCity === initialCity}
                             onClick={onSearch}
                         >
                             Search

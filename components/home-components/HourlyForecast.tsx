@@ -14,17 +14,16 @@ interface IProps {
 const HourlyForecast: FC<IProps> = ({ hourlyForecastStats, daysForecast }: IProps) => {
     const [selectedDay, setSelectedDay] = useState(days[0])
     const filteredStats = daysForecast.filter(stat => getDayFromString(stat.date) === selectedDay)
-    console.log({ filteredStats })
 
     return (
         <div className="flex-[0.5]">
             <div className="flex flex-col justify-center bg-gray-800 p-6 rounded-2xl">
-                <div className="grid grid-cols-2 gap-2 mb-6">
-                    <h2 className="font-bricolage font-bold text-xl mb-3">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 mb-6">
+                    <h2 className="font-bricolage font-bold text-xl mb-3 text-center md:text-left">
                         Hourly Forecast
                     </h2>
 
-                    <div className="relative w-[150px]">
+                    <div className="relative w-[150px] w-full">
                         <select
                             name="day"
                             id="day"
@@ -56,7 +55,7 @@ const HourlyForecast: FC<IProps> = ({ hourlyForecastStats, daysForecast }: IProp
                             value={selectedDay}
                             onChange={(e) => setSelectedDay(e.target.value)}
                         >
-                            {days.map(day => <option className="bg-neutral-0 dark:bg-neutral-900" value={day}>{day}</option>)}
+                            {days.map(day => <option key={day} className="bg-neutral-0 dark:bg-neutral-900" value={day}>{day}</option>)}
                         </select>
 
                         {/* Icon inside styled dark container */}
