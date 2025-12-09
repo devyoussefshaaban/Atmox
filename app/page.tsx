@@ -33,7 +33,7 @@ const Home = async ({ searchParams }: { searchParams: { city?: string } }) => {
         </div>
 
         <div className="col-span-1">
-          <HourlyForecast hourlyForecastStats={formattedWeather.forecast.today.hours!} />
+          <HourlyForecast hourlyForecastStats={formattedWeather.forecast.today.hours!} daysForecast={formattedWeather.forecast.days} />
         </div>
       </div>
 

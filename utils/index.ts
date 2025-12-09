@@ -1,8 +1,8 @@
-import { 
-  WeatherData, 
-  FormattedWeatherData, 
+import {
+  WeatherData,
+  FormattedWeatherData,
   FormattedDayForecast,
-  FormattedHourlyForecast 
+  FormattedHourlyForecast
 } from "../types"
 import { days, months } from "./constants"
 
@@ -168,4 +168,11 @@ function formatHourlyForecast(hour: any): FormattedHourlyForecast {
       direction: hour.wind_dir,
     },
   };
+}
+
+export const formattedText = (text: string, maxChar: number, hasOr?: boolean) => {
+  if (hasOr) {
+    return text.split("or")[0];
+  }
+  return text.charAt(0).toUpperCase() + text.slice(1).slice(0, maxChar);
 }

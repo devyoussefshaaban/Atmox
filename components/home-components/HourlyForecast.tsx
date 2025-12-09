@@ -1,22 +1,21 @@
 "use client"
 
-import { FormattedHourlyForecast } from "@/types"
-import { getHourFromString } from "@/utils"
+import { FormattedDayForecast, FormattedHourlyForecast } from "@/types"
+import { formattedText, getDayFromString, getHourFromString } from "@/utils"
 import { days } from "@/utils/constants"
 import Image from "next/image"
-import { FC } from "react"
+import { FC, useState } from "react"
 
 interface IProps {
-    hourlyForecastStats: FormattedHourlyForecast[]
+    hourlyForecastStats: FormattedHourlyForecast[];
+    daysForecast: FormattedDayForecast[];
 }
 
-const HourlyForecast: FC<IProps> = ({ hourlyForecastStats }: IProps) => {
-    const formattedText = (text: string, maxChar: number, hasOr?: boolean) => {
-        if (hasOr) {
-            return text.split("or")[0];
-        }
-        return text.charAt(0).toUpperCase() + text.slice(1).slice(0, maxChar);
-    }
+const HourlyForecast: FC<IProps> = ({ hourlyForecastStats, daysForecast }: IProps) => {
+    const [selectedDay, setSelectedDay] = useState(days[0])
+    const filteredStats = daysForecast.filter(stat => getDayFromString(stat.date) === selectedDay)
+    console.log({ filteredStats })
+
     return (
         <div className="flex-[0.5]">
             <div className="flex flex-col justify-center bg-gray-800 p-6 rounded-2xl">
@@ -54,8 +53,8 @@ const HourlyForecast: FC<IProps> = ({ hourlyForecastStats }: IProps) => {
 
                             appearance-none
                             "
-                            value={days[0]}
-                            onChange={(e) => console.log(e.target.value)}
+                            value={selectedDay}
+                            onChange={(e) => setSelectedDay(e.target.value)}
                         >
                             {days.map(day => <option className="bg-neutral-0 dark:bg-neutral-900" value={day}>{day}</option>)}
                         </select>
@@ -78,7 +77,7 @@ const HourlyForecast: FC<IProps> = ({ hourlyForecastStats }: IProps) => {
                 </div>
 
                 <div className="grid gap-3 max-h-[calc(100vh-20px)] overflow-y-auto mobile-scroll">
-                    {hourlyForecastStats.map((stat) => (
+                    {filteredStats && filteredStats[0]?.hours?.map((stat) => (
                         <div key={stat.time} className="flex flex-col sm:flex-row justify-between items-center bg-gray-800 p-4 rounded-lg border-2 border-gray-600 ">
                             <div className="flex justify-center items-center mb-2">
                                 <Image width={30} height={30} src={stat.condition.icon} alt="Weather Icon" />
