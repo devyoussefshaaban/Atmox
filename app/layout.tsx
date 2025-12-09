@@ -20,15 +20,18 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="px-4 py-6 md:px-20 md:py-10">
+    <>
       <header className="flex justify-between items-center">
         <div>
           <Image width={200} height={200} src="/images/logo.svg" alt="Logo" className="mx-auto" />
         </div>
       </header>
-      <body className={`${dmSans.variable} ${bricolage.variable} bg-neutral-900 text-white`}>
-        {children}
-      </body>
-    </html>
+      <html lang="en" className="px-4 py-6 md:px-20 md:py-10">
+
+        <body className={`${dmSans.variable} ${bricolage.variable} bg-neutral-900 text-white`}>
+          {children}
+        </body>
+      </html>
+    </>
   );
 }
