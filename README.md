@@ -15,11 +15,11 @@ Atmox is a weather application that provides real-time weather information for a
 
 ## Live Preview
 
-- [Atmox](https://atmox.vercel.app/)
+- [Atmox | Weather Atmosphere](https://atmox.vercel.app/)
 
 ## Contact Info
 
-- [Email](mailto:imdevyoussef@gmail.com)
-- [LinkedIn](https://www.linkedin.com/in/youssef-shaaban-0b0b0b0b0/)
+- [Email](mailto:imdevyoussefshaaban@gmail.com)
+- [LinkedIn](https://www.linkedin.com/in/imdevyoussefshaaban/)
 - [Portfolio](https://devyoussefshaaban.vercel.app/)
 - [WhatsApp](https://wa.me/201026106473)
