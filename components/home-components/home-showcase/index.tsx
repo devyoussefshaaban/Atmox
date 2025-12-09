@@ -26,7 +26,7 @@ const WeatherShowcase: FC<IProps> = ({ forecastStats, dailyForecastStats, curren
             p-6
             flex
             flex-col sm:flex-row
-            justify-between items-center
+            justify-center md:justify-between items-center
             rounded-2xl
             bg-cover
             bg-center

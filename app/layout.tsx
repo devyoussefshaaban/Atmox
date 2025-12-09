@@ -39,9 +39,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
 
         <footer className="flex justify-center items-center  z-50 bg-neutral-900 py-1">
-          <div>
+          <div className="flex gap-2 items-center">
             <p className="text-center text-sm italic">
-              Created & Designed by <Link className="font-bricolage" target="_blank" href="https://devyoussefshaaban.vercel.app/">Youssef Shaaban</Link>
+              Created & Developed by <Link className="font-bricolage" target="_blank" href="https://devyoussefshaaban.vercel.app/">Youssef Shaaban</Link>
             </p>
           </div>
         </footer>
