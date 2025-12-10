@@ -26,5 +26,13 @@ export const socialLinks = [
     {
         href: "mailto:imdevyoussefshaaban@gmail.com",
         icon: "/images/email.svg"
+    },
+    {
+        href: "tel:+201026106473",
+        icon: "/images/phone.svg"
+    },
+    {
+        href: "https://wa.me/201281534401",
+        icon: "/images/whatsapp.svg"
     }
 ]

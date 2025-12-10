@@ -1,6 +1,8 @@
 import { HourlyForecast, SearchPlace, WeatherShowcase } from "@/components";
 import { formatWeatherData } from "@/utils";
 import fetcher from "@/utils/fetcher";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 
 const Home = async ({ searchParams }: { searchParams: { city?: string } }) => {
@@ -35,7 +37,6 @@ const Home = async ({ searchParams }: { searchParams: { city?: string } }) => {
           <HourlyForecast daysForecast={formattedWeather.forecast.days} />
         </div>
       </div>
-
     </div>
   );
 };
