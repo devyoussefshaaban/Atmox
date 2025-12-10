@@ -1,6 +1,6 @@
 "use client"
 
-import { FormattedDayForecast, FormattedHourlyForecast } from "@/types"
+import { FormattedDayForecast } from "@/types"
 import { formattedText, getDayFromString, getHourFromString } from "@/utils"
 import { days } from "@/utils/constants"
 import Image from "next/image"
@@ -8,11 +8,10 @@ import { FC, useState } from "react"
 import { CustomSelect } from "../shared-components"
 
 interface IProps {
-    hourlyForecastStats: FormattedHourlyForecast[];
     daysForecast: FormattedDayForecast[];
 }
 
-const HourlyForecast: FC<IProps> = ({ hourlyForecastStats, daysForecast }: IProps) => {
+const HourlyForecast: FC<IProps> = ({ daysForecast }: IProps) => {
     const [selectedDay, setSelectedDay] = useState(days[0])
     const filteredStats = daysForecast.filter(stat => getDayFromString(stat.date) === selectedDay)
 
@@ -49,7 +48,7 @@ const HourlyForecast: FC<IProps> = ({ hourlyForecastStats, daysForecast }: IProp
                 </div>
                 <div className="grid gap-3 max-h-[calc(100vh-20px)] overflow-y-auto mobile-scroll pr-4">
                     {filteredStats && filteredStats[0]?.hours?.map((stat) => (
-                        <div key={stat.time} className="flex flex-col sm:flex-row justify-between items-center bg-gray-800 p-4 rounded-lg border-2 border-gray-600 ">
+                        <div key={stat.time} className="flex flex-col sm:flex-row justify-between items-center bg-gray-800 p-2 rounded-lg border-2 border-gray-600 ">
                             <div className="flex justify-center items-center mb-2">
                                 <Image width={30} height={30} src={stat.condition.icon} alt="Weather Icon" />
                                 <p className="font-dmSans text-neutral-300 font-semibold text-center ml-2">{getHourFromString(stat.time)}</p>
