@@ -9,7 +9,7 @@ import { getDayFromString, getMonthFromString } from "@/utils"
 
 interface IProps {
     forecastStats: FormattedWeatherData["current"],
-    dailyForecastStats: { day: string, min: number, max: number }[]
+    dailyForecastStats: FormattedDayForecast[]
     currentTemp: number
     conditionIcon: string
     forecastDays: FormattedDayForecast[]

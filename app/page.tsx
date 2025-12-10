@@ -1,5 +1,4 @@
 import { HourlyForecast, SearchPlace, WeatherShowcase } from "@/components";
-import { dailyForecastStats, hourlyForecastStats } from "@/data";
 import { formatWeatherData } from "@/utils";
 import fetcher from "@/utils/fetcher";
 
@@ -24,7 +23,7 @@ const Home = async ({ searchParams }: { searchParams: { city?: string } }) => {
         <div className="col-span-2">
           <WeatherShowcase
             forecastStats={forecastStats}
-            dailyForecastStats={dailyForecastStats}
+            dailyForecastStats={formattedWeather.forecast.days}
             currentTemp={currentTemp}
             conditionIcon={conditionIcon}
             forecastDays={forecastDays}
