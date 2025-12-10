@@ -9,3 +9,22 @@ export const months = [
 export const EGYPTIAN_CITIES = [
     "Alexandria", "Aswan", "Asyut", "Beheira", "Beni Suef", "Cairo", "Dakahlia", "Damietta", "Faiyum", "Gharbia", "Giza", "Ismailia", "Kafr El Sheikh", "Luxor", "Matrouh", "Minya", "Monufia", "New Valley", "North Sinai", "Port Said", "Qalyubia", "Qena", "Red Sea", "Sharqia", "Sohag", "South Sinai", "Suez"
 ];
+
+export const socialLinks = [
+    {
+        href: "https://www.linkedin.com/in/imdevyoussefshaaban",
+        icon: "/images/linkedin.svg"
+    },
+    {
+        href: "https://github.com/devyoussefshaaban",
+        icon: "/images/github.svg"
+    },
+    {
+        href: "https://devyoussefshaaban.vercel.app",
+        icon: "/images/website.svg"
+    },
+    {
+        href: "mailto:imdevyoussefshaaban@gmail.com",
+        icon: "/images/email.svg"
+    }
+]

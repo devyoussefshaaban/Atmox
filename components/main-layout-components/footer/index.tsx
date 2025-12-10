@@ -1,5 +1,14 @@
+import { socialLinks } from "@/utils/constants"
 import Image from "next/image"
 import Link from "next/link"
+
+const SocialLink = ({ href, icon }: { href: string, icon: string }) => {
+    return (
+        <Link href={href} target="_blank">
+            <Image width={20} height={20} src={icon} className="mx-auto text-white" alt="Logo" />
+        </Link>
+    )
+}
 
 const Footer = () => {
     return (
@@ -10,18 +19,9 @@ const Footer = () => {
                 </p>
             </div>
             <div className="flex gap-3 justify-center items-center">
-                <Link href="https://www.linkedin.com/in/imdevyoussefshaaban/" target="_blank">
-                    <Image width={20} height={20} src="/images/linkedin.svg" className="mx-auto text-white" alt="Logo" />
-                </Link>
-                <Link href="https://github.com/devyoussefshaaban" target="_blank">
-                    <Image width={20} height={20} src="/images/github.svg" className="mx-auto text-white" alt="Logo" />
-                </Link>
-                <Link href="https://devyoussefshaaban.vercel.app" target="_blank">
-                    <Image width={20} height={20} src="/images/website.svg" className="mx-auto text-white" alt="Logo" />
-                </Link>
-                <Link href="mailto:imdevyoussefshaaban@gmail.com" target="_blank">
-                    <Image width={20} height={20} src="/images/email.svg" className="mx-auto text-white" alt="Logo" />
-                </Link>
+                {socialLinks.map((link, index) => (
+                    <SocialLink key={index} href={link.href} icon={link.icon} />
+                ))}
             </div>
         </footer>
     )

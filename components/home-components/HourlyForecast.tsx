@@ -35,7 +35,7 @@ const HourlyForecast: FC<IProps> = ({ daysForecast }: IProps) => {
                         </div>
                     </div>
                 </div>
-                <div className="grid gap-3 md:h-[calc(50vh-50px)] sm:h-[calc(40vh-100px)] xs:h-[calc(40vh-100px)] overflow-y-auto mobile-scroll px-6">
+                <div className="grid gap-3 md:h-[calc(90vh-50px)] h-[50vh] overflow-y-auto mobile-scroll px-6 pb-6">
                     {filteredStats && filteredStats[0]?.hours?.map((stat) => (
                         <div key={stat.time} className="flex flex-col sm:flex-row justify-between items-center bg-gray-800 p-2 rounded-lg border-2 border-gray-600 ">
                             <div className="flex justify-center items-center mb-2">
