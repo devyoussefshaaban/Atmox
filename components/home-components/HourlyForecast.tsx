@@ -33,23 +33,9 @@ const HourlyForecast: FC<IProps> = ({ daysForecast }: IProps) => {
                                 placeholder="Select a day"
                             />
                         </div>
-
-                        {/* Icon inside styled dark container */}
-                        <div className="
-                            absolute right-1 top-1/2 -translate-y-1/2
-                            w-8 h-8
-                            flex items-center justify-center
-                            rounded-lg
-                            bg-neutral-800
-                            dark:bg-neutral-800
-                            pointer-events-none
-                        "
-                        >
-                            <Image width={16} height={16} src="/images/icon-dropdown.svg" alt="Arrow Down" />
-                        </div>
                     </div>
                 </div>
-                <div className="grid gap-3 max-h-[calc(100vh-20px)] overflow-y-auto mobile-scroll px-6">
+                <div className="grid gap-3 md:h-[calc(50vh-50px)] sm:h-[calc(40vh-100px)] xs:h-[calc(40vh-100px)] overflow-y-auto mobile-scroll px-6">
                     {filteredStats && filteredStats[0]?.hours?.map((stat) => (
                         <div key={stat.time} className="flex flex-col sm:flex-row justify-between items-center bg-gray-800 p-2 rounded-lg border-2 border-gray-600 ">
                             <div className="flex justify-center items-center mb-2">

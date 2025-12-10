@@ -162,3 +162,7 @@ export const formattedText = (text: string, maxChar: number, hasOr?: boolean) =>
   }
   return text.charAt(0).toUpperCase() + text.slice(1).slice(0, maxChar);
 }
+
+export const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};

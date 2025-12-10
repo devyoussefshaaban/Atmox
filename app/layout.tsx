@@ -1,8 +1,7 @@
 import { DM_Sans, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
-import Image from "next/image";
-import Link from "next/link";
 import { Footer, Header } from "@/components/main-layout-components";
+import ScrollToTop from "@/components/main-layout-components/scroll-to-top-button";
 
 export const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -36,6 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
 
         <Footer />
+        <ScrollToTop />
       </body>
     </html>
   );
