@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect, FC } from "react";
 
-interface IProps { options: string[], value: string, onChange: any, placeholder: string }
+interface IProps { options: string[], value: string, onChange: any, placeholder: string, withPadding: boolean }
 
-const CustomSelect: FC<IProps> = ({ options, value, onChange, placeholder }) => {
+const CustomSelect: FC<IProps> = ({ options, value, onChange, placeholder, withPadding }) => {
     const [open, setOpen] = useState(false);
     const selectRef: React.RefObject<HTMLDivElement | null> = useRef(null);
 
@@ -24,6 +24,7 @@ const CustomSelect: FC<IProps> = ({ options, value, onChange, placeholder }) => 
         flex justify-between items-center select-none
         active:scale-[0.98] transition"
                 onClick={() => setOpen(!open)}
+                style={{ padding: withPadding ? "16px" : "" }}
             >
                 <span className="text-md">
                     {value || placeholder || "Select option"}

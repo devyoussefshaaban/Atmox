@@ -17,19 +17,22 @@ const HourlyForecast: FC<IProps> = ({ daysForecast }: IProps) => {
 
     return (
         <div className="flex-[0.5]">
-            <div className="flex flex-col justify-center bg-gray-800 p-6 rounded-2xl">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 mb-6">
-                    <h2 className="font-bricolage font-bold text-xl text-center md:text-left">
+            <div className="flex flex-col justify-center bg-gray-800 rounded-xl">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 mb-6 p-6 shadow-[0_8px_30px_rgba(0,0,0,0.6)] rounded-xl">
+                    <h2 className="font-bricolage font-bold text-xl text-center md:text-left mb-2 md:mt-4">
                         Hourly Forecast
                     </h2>
 
                     <div className="relative w-[150px] w-full">
-                        <CustomSelect
-                            options={days}
-                            value={selectedDay}
-                            onChange={setSelectedDay}
-                            placeholder="Select a day"
-                        />
+                        <div className="bg-neutral-800 shadow-[0_1px_10px_rgba(0,0,0,0.6)]">
+                            <CustomSelect
+                                withPadding={true}
+                                options={days}
+                                value={selectedDay}
+                                onChange={setSelectedDay}
+                                placeholder="Select a day"
+                            />
+                        </div>
 
                         {/* Icon inside styled dark container */}
                         <div className="
@@ -46,7 +49,7 @@ const HourlyForecast: FC<IProps> = ({ daysForecast }: IProps) => {
                         </div>
                     </div>
                 </div>
-                <div className="grid gap-3 max-h-[calc(100vh-20px)] overflow-y-auto mobile-scroll pr-4">
+                <div className="grid gap-3 max-h-[calc(100vh-20px)] overflow-y-auto mobile-scroll px-6">
                     {filteredStats && filteredStats[0]?.hours?.map((stat) => (
                         <div key={stat.time} className="flex flex-col sm:flex-row justify-between items-center bg-gray-800 p-2 rounded-lg border-2 border-gray-600 ">
                             <div className="flex justify-center items-center mb-2">
