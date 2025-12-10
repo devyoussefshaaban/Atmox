@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, FC } from "react";
 
-interface IProps { options: string[], value: string, onChange: any, placeholder: string, withPadding: boolean }
+interface IProps { options: string[], value: string, onChange: any, placeholder: string, withPadding?: boolean }
 
 const CustomSelect: FC<IProps> = ({ options, value, onChange, placeholder, withPadding }) => {
     const [open, setOpen] = useState(false);
