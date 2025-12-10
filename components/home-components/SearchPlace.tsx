@@ -40,12 +40,21 @@ const SearchPlace: FC<IProps> = ({ initialCity }: IProps) => {
                         />
                     </div>
                     <div className="w-full sm:w-auto mt-2 sm:mt-0">
-                        <button className="w-full sm:w-auto rounded-lg bg-blue-500 px-8 py-3 font-semibold cursor-pointer text-white disabled:cursor-not-allowed disabled:bg-gray-600"
+                        <button
+                            className="
+                                justify-center
+                                w-full sm:w-auto rounded-lg bg-blue-500 min-w-[10rem] pr-2 pl-3 py-3 font-semibold cursor-pointer text-white 
+                                disabled:cursor-not-allowed disabled:bg-gray-600 disabled:scale-100
+                                hover:scale-103 transform transition duration-300
+                                flex items-center gap-2
+                            "
                             disabled={selectedCity === initialCity}
                             onClick={onSearch}
                         >
-                            Search
+                            <Image width={20} height={20} src="/images/forecast.svg" alt="Forecast Icon" />
+                            <span className="text-md">Show Forecast</span>
                         </button>
+
                     </div>
                 </div>
             </div>
